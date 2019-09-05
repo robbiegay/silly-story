@@ -36,6 +36,12 @@ function result() {
   // Allows you to insert a custom name
   if(customName.value !== '') {
     let name = customName.value;
+    // Make name Title Case
+    let firstLetter = name[0];
+    firstLetter = firstLetter.toUpperCase();
+    let restOfName = name.slice(1);
+    name = firstLetter + restOfName;
+    // Insert name into story
     newStory = newStory.replace('Bob', name);
 
   }
@@ -78,7 +84,7 @@ function result() {
   if(document.getElementById("typewriter-on").checked) {
   story.textContent = ""; // Make story empty
   story.style.visibility = 'hidden'; // Hides story
-  document.getElementsByClassName("randomize").disabled = true;
+  //document.getElementsByClassName("randomize").disabled = true;
   let i = 0;
   let speed = 55; // Speed of typewriter effect
   function typeWriter () {
@@ -90,7 +96,7 @@ function result() {
       }
     }
     typeWriter();
-    document.getElementsByClassName("randomize").disabled = false;
+    //document.getElementsByClassName("randomize").disabled = false;
   } else {
     typeWriterTarget.textContent = ""; // Makes typeWriterTarget empty
     typeWriterTarget.style.visibility = 'hidden'; // Hides typeWriterTarget
