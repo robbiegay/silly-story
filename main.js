@@ -29,14 +29,14 @@ randomize.addEventListener('click', result);
 
 let newStory = storyText;
 
-// Call the result() function when button is pressed
+// Creates the result() function --> This runs when "generate" button is pressed
 
 function result() {
 
   // Allows you to insert a custom name
   if(customName.value !== '') {
     let name = customName.value;
-    // Make name Title Case
+    // Makes name Title Case
     let firstLetter = name[0];
     firstLetter = firstLetter.toUpperCase();
     let restOfName = name.slice(1);
@@ -54,9 +54,11 @@ function result() {
     newStory = newStory.replace('94° fahrenheit', temperature);
   }
 
+  // "Ancient Mesopotamian" Easter Egg
+
   if(document.getElementById("am").checked) {
     let weight = Math.round((300*453.592) / 8.4); // Convert pounds to grams = lbs * 453.592 --> g to shekel = g / 8.4
-    // if (weight.length >= 4) { // If shekel is longer than 3 digits, I want to add a comma
+    // if (weight.length >= 4) { // If shekel is longer than 3 digits, I wanted to add a comma
     // For some reason my code doesn't work with the 'for loop'
     let myString = weight.toString(); // In order to slice my number, it has to be turned into a string
     let hundreds = myString.slice(myString.length-3,myString.length); // Slices the hundreds (last 3 numbers)
@@ -83,7 +85,7 @@ function result() {
   typeWriterTarget.textContent = ""; // Empties the Typewriter Effect text everytime button is pressed
 
   if(document.getElementById("typewriter-on").checked) {
-    story.textContent = ""; // Make story empty
+    story.textContent = ""; // Makes story empty
     story.style.visibility = 'hidden'; // Hides story
     // Disables the "generate" button while running Typewriter Effect, otherwise pressing
     // button while effect is still running causes unpleasent results
