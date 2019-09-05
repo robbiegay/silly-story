@@ -81,22 +81,32 @@ function result() {
 
   // Typewriter Effect
 
+  typeWriterTarget.textContent = ""; // Empties the Typewriter Effect text everytime button is pressed
+
   if(document.getElementById("typewriter-on").checked) {
-  story.textContent = ""; // Make story empty
-  story.style.visibility = 'hidden'; // Hides story
-  //document.getElementsByClassName("randomize").disabled = true;
-  let i = 0;
-  let speed = 55; // Speed of typewriter effect
-  function typeWriter () {
-    typeWriterTarget.style.visibility = 'visible'; // Make the typerwriter <p> visible
-    if (i < newStory.length) {
-      document.getElementById("typeWriterTarget").innerHTML += newStory.charAt(i);
-      i++;
-      setTimeout(typeWriter, speed);
+    story.textContent = ""; // Make story empty
+    story.style.visibility = 'hidden'; // Hides story
+    // Disables the "generate" button while running typewritereffect, otherwise pressing
+    // button while effect is still running causes unpleasent results
+    document.querySelector(".randomize").disabled = true;
+    let i = 0;
+    let speed = 5; // Speed of typewriter effect
+    
+    function typeWriter () {
+      //if(typeWriterTarget.textContent !== "") { // Empty the 
+      //  typeWriterTarget.textContent = "";
+      //}
+      typeWriterTarget.style.visibility = 'visible'; // Make the typerwriter <p> visible
+      if (i < newStory.length) {
+        document.getElementById("typeWriterTarget").innerHTML += newStory.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+        }
+      if (i === newStory.length) { // Turns the "generate" button back on when typewriter effect === done
+        document.querySelector(".randomize").disabled = false;
       }
-    }
+    }  
     typeWriter();
-    //document.getElementsByClassName("randomize").disabled = false;
   } else {
     typeWriterTarget.textContent = ""; // Makes typeWriterTarget empty
     typeWriterTarget.style.visibility = 'hidden'; // Hides typeWriterTarget
@@ -109,9 +119,3 @@ function result() {
   
   newStory = storyText; // Resets the story after button has been pressed.
 }
-
-
-
-
-// make name entry capitalize the first letter
-// create a typewriter effect (doesn't really use what we've learned so far)
