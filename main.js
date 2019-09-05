@@ -101,6 +101,7 @@ function result() {
       }
       if (i === newStory.length) { // Turns the "generate" button back on when typewriter effect === done
         document.querySelector(".randomize").disabled = false;
+        newStory = storyText; // Resets the newStory text once the Typewriter effect has completed
       }
     }  
 
@@ -115,7 +116,5 @@ function result() {
     story.style.visibility = 'visible'; // Makes the story visible
     newStory = storyText; // Resets the story after button has been pressed.
   }
-  
-  // newStory = storyText; // Resets the story after button has been pressed.
 
 }
