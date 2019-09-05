@@ -90,7 +90,7 @@ function result() {
     document.querySelector(".randomize").disabled = true;
 
     let i = 0;
-    let speed = 5; // Speed of typewriter effect
+    let speed = 50; // Speed of typewriter effect
     
     function typeWriter() {
       typeWriterTarget.style.visibility = 'visible'; // Make the typerwriter <p> visible
