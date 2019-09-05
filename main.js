@@ -58,13 +58,16 @@ function result() {
 
   if(document.getElementById("am").checked) {
     let weight = Math.round((300*453.592) / 8.4); // Convert pounds to grams = lbs * 453.592 --> g to shekel = g / 8.4
-    // if (weight.length >= 4) { // If shekel is longer than 3 digits, I wanted to add a comma
-    // For some reason my code doesn't work with the 'for loop'
+    
+    // If shekel is longer than 3 digits, I wanted to add a comma
+    // For some reason my code didn't work with the 'for loop', so I commented it out
+    // if (weight.length >= 4) { 
+    
     let myString = weight.toString(); // In order to slice my number, it has to be turned into a string
     let hundreds = myString.slice(myString.length-3,myString.length); // Slices the hundreds (last 3 numbers)
     let thous = myString.slice(0, myString.length-3); // Slices the Thousands and up (4th digit and higher)
     weight = thous + ',' + hundreds + ' shekel'; // Concatenates the two, placing a comma inbetween and adding shekel to the end
-    //}
+    //} (Part of the if statement in line64. Commented out)
     newStory = newStory.replace('300 pounds', weight);
     newStory = newStory.replace('94° fahrenheit', 'really hot');
   }
